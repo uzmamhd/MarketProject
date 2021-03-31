@@ -4,6 +4,7 @@ Created on Sat Mar 20 20:14:22 2021
 
 @author: uzmam
 """
+import pandas as pd 
 
 class Order: 
     def _init_(self, NbAction, Prix, OrdreType):
