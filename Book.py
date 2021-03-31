@@ -6,32 +6,40 @@ Created on Sat Mar 20 20:14:22 2021
 """
 
 class Order: 
-    def init(self, NbAction, Prix, OrdreType):
+    def _init_(self, NbAction, Prix, OrdreType):
         self.NbAction = NbAction
         self.Prix = Prix
         self.OrdreType = OrdreType
         
 class Book:
-    def init(self, BookName):
+    def _init_(self, BookName):
         self.BookName = BookName 
         self.BuyOrders = []
         self.SellOrders = []
        
     def BookState_BuySide(self):
-        print("Order book : Buy Side")
+        NbAction=[]
+        Prix=[]
         if self.BuyOrders == []:
-            print("There are no orders in the book \n")
+            print("ORDER BOOK: BUY SIDE \n There are no olders in the book \n")
         else:
             for i in range(len(self.BuyOrders)):
-                print(self.BuyOrders[i].NbAction,"@",self.BuyOrders[i].Prix )
+            NbAction.append(self.BuyOrders[i].NbAction)
+            Prix.append(self.BuyOrders[i].Prix)
+            df=pd.DataFrame({"NbAction" : NbAction , "Prix" : Prix })
+                print("Order Book: BUY SIDE" '\n' , df, '\n')
             
     def BookState_SellSide(self):
-        print("Order book : Sell Side")
+    NbAction=[]
+    Prix=[]
         if self.SellOrders == []:
-            print("There are no orders in the book \n")
+            print("ORDER BOOK : SELL SIDE \n There are no orders in the book \n")
         else:
             for i in range(len(self.SellOrders)):
-                print(self.SellOrders[i].NbAction,"@", self.SellOrders[i].Prix)
+            NbAction.append(self.SellOrders[i].NbAction)
+            Prix.append(self.SellOrders[i].Prix)
+            df=pd.dataframe("Nb Action" : Nb Action , "Prix" : Prix)
+                print("Order Book : SELL SIDE" '\n' , df, '\n')
     
     def affichage(self):
         print("This is the log for the order book of",self.BookName, ':\n')
